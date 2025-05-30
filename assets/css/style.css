@@ -6,15 +6,11 @@ body {
   color: black;
   transition: background-color 0.3s, color 0.3s;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
 
 h1, h2 {
   font-family: 'Montserrat', sans-serif;
-}
-
-p.quote {
-  font-family: 'Lora', serif;
-  font-style: italic;
 }
 
 /* Dark mode styles */
@@ -29,6 +25,9 @@ body.dark-mode {
   padding: 15px 20px;
   border-bottom: 1px solid #ddd;
   font-family: Arial, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 /* Links inside the taskbar */
@@ -45,17 +44,6 @@ body.dark-mode {
 #taskbar a:hover {
   color: #007acc;
   border-bottom: 2px solid #007acc;
-}
-
-/* Make taskbar stick to top */
-body {
-  margin: 0;
-}
-
-#taskbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 .center-wrapper {
