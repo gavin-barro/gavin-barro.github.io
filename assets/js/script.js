@@ -29,17 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
         if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
+            localStorage.setItem("darkMode", "enabled");
+            toggleBtn.textContent = "Light Mode";
         } else {
-        localStorage.setItem("darkMode", "disabled");
+            localStorage.setItem("darkMode", "disabled");
+            toggleBtn.textContent = "Dark Mode";
         }
     });
-
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("darkMode", "enabled");
-        toggleBtn.textContent = "Light Mode";
-    } else {
-        localStorage.setItem("darkMode", "disabled");
-        toggleBtn.textContent = "Dark Mode";
-    }
 });
