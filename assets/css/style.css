@@ -4,7 +4,6 @@
 body {
   background-color: white;
   color: black;
-  transition: background-color 0.3s, color 0.3s;
   font-family: 'Poppins', sans-serif;
   margin: 0;
 }
@@ -18,6 +17,36 @@ body.dark-mode {
   background-color: #1E1E1E;
   color: #FFFFFF;
 }
+
+body.dark-mode #taskbar {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode #taskbar a {
+  color: #ddd;
+}
+
+body.dark-mode #taskbar a:hover {
+  color: #66bfff;
+  border-bottom: 2px solid #66bfff;
+}
+
+body.dark-mode #darkModeToggle {
+  background-color: #444;
+  color: #fff;
+}
+
+#darkModeToggle {
+  margin-left: 20px;
+  background-color: #e0e0e0;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 
 /* Taskbar container */
 #taskbar {
