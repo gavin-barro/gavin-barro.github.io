@@ -1,13 +1,26 @@
+/* Import google fonts using api */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
 body {
   background-color: white;
   color: black;
   transition: background-color 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p.quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
 }
 
 /* Dark mode styles */
 body.dark-mode {
-  background-color: #181818;
-  color: white;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
 }
 
 /* Taskbar container */
