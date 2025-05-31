@@ -73,7 +73,6 @@ body.dark-mode #darkModeToggle {
   color: #333;
   margin: 0 15px;
   font-size: 18px;
-  transition: color 0.3s, border-bottom 0.3s;
   padding-bottom: 5px;
 } 
 
