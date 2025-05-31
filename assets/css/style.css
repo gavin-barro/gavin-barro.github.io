@@ -12,6 +12,14 @@ h1, h2 {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  color: #007acc; 
+}
+
+a:visited, a:hover, a:active {
+  color: #007acc;
+}
+
 /* Dark mode styles */
 body.dark-mode {
   background-color: #1E1E1E;
@@ -139,7 +147,6 @@ body.dark-mode #darkModeToggle {
   height: 32px;
   margin-bottom: 5px;
 }
-
 
 
 
