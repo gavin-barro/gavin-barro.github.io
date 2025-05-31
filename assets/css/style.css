@@ -6,6 +6,8 @@ body {
     color: black;
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    padding-left:  50px;
+    padding-right: 50px;
 }
 
 h1, h2 {
@@ -65,6 +67,7 @@ body.dark-mode #darkModeToggle {
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 0;
 }
 
 /* Links inside the taskbar */
@@ -194,5 +197,9 @@ body.dark-mode #darkModeToggle {
     width:  300px;
     height: 300px;
     float: right;
+}
+
+.indented {
+    text-indent: 2em;
 }
 
