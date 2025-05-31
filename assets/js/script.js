@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Dark mode
 document.addEventListener("DOMContentLoaded", function () {
-    const backToTopBtn = document.getElementById("backToTop");
-    const toggleBtn = document.getElementById("darkModeToggle");
+    let backToTopBtn = document.getElementById("backToTop");
+    let toggleBtn = document.getElementById("darkModeToggle");
 
     // Apply dark mode and button text from localStorage
     if (localStorage.getItem("darkMode") === "enabled") {

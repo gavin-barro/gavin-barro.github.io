@@ -2,190 +2,196 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
 
 body {
-  background-color: white;
-  color: black;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
+    background-color: white;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 h1, h2 {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
-  color: #007acc; 
+    color: #007acc; 
 }
 
 a:visited, a:hover, a:active {
-  color: #007acc;
+    color: #007acc;
 }
 
 /* Dark mode styles */
 body.dark-mode {
-  background-color: #1E1E1E;
-  color: #FFFFFF;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
 }
 
 body.dark-mode #taskbar {
-  background-color: #2a2a2a;
-  border-bottom: 1px solid #444;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
 }
 
 body.dark-mode #taskbar a {
-  color: #ddd;
+    color: #ddd;
 }
 
 body.dark-mode #taskbar a:hover {
-  color: #66bfff;
-  border-bottom: 2px solid #66bfff;
+    color: #66bfff;
+    border-bottom: 2px solid #66bfff;
 }
 
 body.dark-mode #darkModeToggle {
-  background-color: #444;
-  color: #fff;
+    background-color: #444;
+    color: #fff;
 }
 
 #darkModeToggle {
-  margin-left: 20px;
-  background-color: #e0e0e0;
-  color: #000;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+    margin-left: 20px;
+    background-color: #e0e0e0;
+    color: #000;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 
 /* Taskbar container */
 #taskbar {
-  background-color: #f8f9fa;
-  padding: 15px 20px;
-  border-bottom: 1px solid #ddd;
-  font-family: Arial, sans-serif;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 /* Links inside the taskbar */
 #taskbar a {
-  text-decoration: none;
-  color: #333;
-  margin: 0 15px;
-  font-size: 18px;
-  padding-bottom: 5px;
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 18px;
+    padding-bottom: 5px;
 } 
 
 /* Hover effect for links */
 #taskbar a:hover {
-  color: #007acc;
-  border-bottom: 2px solid #007acc;
+    color: #007acc;
+    border-bottom: 2px solid #007acc;
 }
 
 .center-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #backToTop {
-  background-color: #007acc;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
-  border: none;
-  cursor: pointer;
+    background-color: #007acc;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 #backToTop:hover {
-  background-color: #005f99;
+    background-color: #005f99;
 }
 .button-link {
-  background-color: #007acc;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+    background-color: #007acc;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .button-link:hover {
-  background-color: #005f99;
+    background-color: #005f99;
 }
 
 .footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .footer-links a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
 }
 
 .footer-icon {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 5px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
 }
 
 .vt-img {
-  width: 100px;
+    width: 100px;
 }
 
 .skills-section h3 {
-  text-align: center;
+    text-align: center;
 }
 
 .skills-section-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    padding: 20px;
 }
 
 .skills-section {
-  flex: 1;
-  min-width: 250px;
-  max-width: 300px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .skill-item img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
+
+.gav-pic {
+    width:  300px;
+    height: 300px
+}
+
