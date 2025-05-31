@@ -148,5 +148,7 @@ body.dark-mode #darkModeToggle {
   margin-bottom: 5px;
 }
 
-
+.vt-img {
+  width: 100px;
+}
 
