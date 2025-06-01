@@ -57,29 +57,28 @@ body.dark-mode #darkModeToggle {
     cursor: pointer;
 }
 
-
-/* Taskbar container */
 #taskbar {
     background-color: #f8f9fa;
-    padding: 15px 20px;
+    margin: 0 -50px; 
+    padding: 0;
     border-bottom: 1px solid #ddd;
     font-family: Arial, sans-serif;
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 0;
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
 }
 
-/* Links inside the taskbar */
 #taskbar a {
     text-decoration: none;
     color: #333;
     margin: 0 15px;
     font-size: 18px;
     padding-bottom: 5px;
-} 
+}
 
-/* Hover effect for links */
 #taskbar a:hover {
     color: #007acc;
     border-bottom: 2px solid #007acc;
@@ -201,5 +200,17 @@ body.dark-mode #darkModeToggle {
 
 .indented {
     text-indent: 2em;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px; 
+}
+
+.cert-image {
+    width: 150px;
+    height: auto;
 }
 
