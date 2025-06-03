@@ -50,9 +50,24 @@
             </div>
         </section>
 
+        <section class="project">
+            <h2>QuickBytes</h2>
+            <p>
+                pass
+            </p>
+        </section>
+
         <!-- Add more project sections below -->
         <section class="project">
-            <h2>[Your Next Project Title]</h2>
+            <h2>Next Project</h2>
+            <p>
+                pass
+            </p>
+        </section>
+
+        <section class="project">
+            <h2>OpenLB</h2>
+            <h4> <strong>Authors:</strong> Gavin Barro, Beau Mueller, Mason Puckett</h4>
             <p>
                 For our project, we explored OpenLB, an open-source library designed for simulations using the Lattice Boltzmann Method (LBM).
                 LBM is a computational fluid dynamics (CFD) technique known for its suitability for parallel computing, in contrast to traditional
@@ -61,7 +76,15 @@
                 multiple directions a particle can travel and stores distribution functions indicating the likelihood of a particle moving in those directions.
                 The simulation progresses in discrete time steps involving two primary operations: collision, where particles relax toward equilibrium using the
                 BGK (Bhatnagar-Gross-Krook) operator, and streaming, where particles move to neighboring nodes based on their velocities.
+                <!-- <img src="assets/img/lattice.png" alt="Lattice img" class="image-container" width="125" height="125"> -->
             </p>
+
+            <figure class="image-container">
+                <img src="assets/img/lattice.png" alt="Lattice img" class="cert-image">
+                 <figcaption>
+                    Each vector of a lattice point holds its own distribution function representing <br> the probability of finding a particle moving in its direction.
+                </figcaption>
+            </figure>
 
             <p>
                 OpenLB's architecture and build system are particularly friendly for high-performance computing environments. Its modular config.mk allows for easy
@@ -70,6 +93,11 @@
                 Additionally, /communication and /io manage data exchange between parallel processes and export output in the VTK format, which can be visualized using
                 ParaView.
             </p>
+
+            <div class="image-container">
+                <img src="assets/img/openlb_logo.png" alt="OpenLB" class="cert-image">
+                <img src="assets/img/paraview_logo.png" alt="ParaView" class="cert-image">
+            </div>
 
             <p>
                 Our work focuses on two pre-configured example simulations within the OpenLB library: Bifurcation3d, which simulates particle flow through a bifurcating
@@ -80,6 +108,19 @@
                 computationally expensive—especially in 3D simulations—often triggering SIGKILLs due to resource exhaustion.
             </p>
 
+            <figure class="image-container">
+                <img src="assets/img/bifurcation3d.jpeg" alt="bifurcation3d img" class="cert-image">
+                <figcaption>
+                    Bifurcation3d
+                </figcaption>
+            </figure>
+
+            <figure class="image-container">
+                <img src="assets/img/rayleighBenard2d.webp" alt="rayleighBenard2d" class="cert-image">
+                <figcaption>
+                    RayleighBenard2d
+                </figcaption>
+            </figure>
             <p>
                 To address the nonlinear relationship between resolution and computational cost, we used a combined metric of MLUP/s (millions of lattice updates per
                 second) and runtime to estimate the input size for different resolutions. This allowed us to match problem size with available resources more precisely.
@@ -95,6 +136,8 @@
                 proved to be a significant limitation. In contrast, OpenMP, operating within a shared memory environment, delivered reliable scaling across all tests,
                 making it the more stable and user-friendly option for our experiments.
             </p>
+
+            <!-- TODO add graphs -->
 
             <p>
                 Initial MPI tests with the RayleighBenard2d example showed promising strong scaling from 1 to 4 processes, reducing runtime from 43 to 16 seconds and
@@ -144,8 +187,17 @@
             </p>
 
             <div class="image-container">
-                <a href="https://docs.google.com/document/d/13asYHF3Qhm89IVmgYwncc028He4cc7JujudeMXElc6s/edit?tab=t.0" target="_blank">Final Draft Report</a>
-                <img src="assets/img/resume_icon.png" alt="Report" width="20" height="20">
+                <a href="https://docs.google.com/document/d/13asYHF3Qhm89IVmgYwncc028He4cc7JujudeMXElc6s/edit?tab=t.0" target="_blank">
+                    <img src="assets/img/resume_icon.png" alt="Report" width="20" height="20">
+                    Final Draft Report
+                </a>
+            </div>
+
+            <div class="image-container">
+                <a href="assets/misc/CS_470_Poster_Project.png" target="_blank">
+                    <img src="assets/img/poster_board.png" alt="Poster" class="footer-icon">
+                    <span>Final Poster</span>
+                </a>
             </div>
 
             <div class="image-container">
@@ -154,12 +206,10 @@
                     GitHub Repo
                 </a>
             </div>
-            <div class="image-container">
-                <img src="assets/img/ndva_logo.png" alt="NDVA logo" class="cert-image">
-                <img src="assets/img/ndva_graphics_card.avif" alt="NDVA graphics card" class="cert-image">
-            </div>
         </section>
     </main>
+
+    <br>
 
     <div class="center-wrapper">
         <button type="button" id="backToTop">Back to Top</button>
