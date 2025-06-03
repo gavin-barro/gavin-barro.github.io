@@ -53,7 +53,111 @@
         <!-- Add more project sections below -->
         <section class="project">
             <h2>[Your Next Project Title]</h2>
-            <p>[Project description goes here...]</p>
+            <p>
+                For our project, we explored OpenLB, an open-source library designed for simulations using the Lattice Boltzmann Method (LBM).
+                LBM is a computational fluid dynamics (CFD) technique known for its suitability for parallel computing, in contrast to traditional
+                CFD methods that are harder to parallelize. Rather than solving the Navier-Stokes equations directly, LBM models fluid flow by simulating
+                the behavior of individual particles across a discretized lattice. Each point on this lattice, denoted by a scheme such as D2Q9, represents
+                multiple directions a particle can travel and stores distribution functions indicating the likelihood of a particle moving in those directions.
+                The simulation progresses in discrete time steps involving two primary operations: collision, where particles relax toward equilibrium using the
+                BGK (Bhatnagar-Gross-Krook) operator, and streaming, where particles move to neighboring nodes based on their velocities.
+            </p>
+
+            <p>
+                OpenLB's architecture and build system are particularly friendly for high-performance computing environments. Its modular config.mk allows for easy
+                configuration of compilers, parallelization strategies (MPI and OpenMP), and platform-specific settings. The computational core is housed under
+                /src/core/ and further divided into logical components like dynamics, lattice, and boundary, each of which governs a specific aspect of the simulation.
+                Additionally, /communication and /io manage data exchange between parallel processes and export output in the VTK format, which can be visualized using
+                ParaView.
+            </p>
+
+            <p>
+                Our work focuses on two pre-configured example simulations within the OpenLB library: Bifurcation3d, which simulates particle flow through a bifurcating
+                geometry using an Euler-Lagrange approach, and RayleighBenard2d, which models convection currents in a fluid heated from below and cooled from above.
+                We conducted both strong and weak scaling tests. In strong scaling, we varied the number of MPI processes and OpenMP threads while keeping problem
+                size constant (default resolution: 19 for Bifurcation3d, 10 for RayleighBenard2d). In weak scaling, we increased the resolution proportionally with
+                computational resources to maintain workload per core. We found that increasing lattice resolution, while increasing detail and accuracy, becomes
+                computationally expensive—especially in 3D simulations—often triggering SIGKILLs due to resource exhaustion.
+            </p>
+
+            <p>
+                To address the nonlinear relationship between resolution and computational cost, we used a combined metric of MLUP/s (millions of lattice updates per
+                second) and runtime to estimate the input size for different resolutions. This allowed us to match problem size with available resources more precisely.
+                For Bifurcation3d, we used a maximum of 2 tasks per node, and for RayleighBenard2d, up to 4 tasks per node. Each simulation's scaling behavior was
+                assessed by modifying parameters such as the number of lattice nodes (defined on line 64 for Bifurcation and line 47 for RayleighBenard) and observing
+                performance under varying parallel configurations.
+            </p>
+
+            <p>
+                To evaluate OpenLB's performance, we conducted both strong and weak scaling experiments using OpenMP and MPI. While OpenMP provided consistently
+                predictable results, MPI exhibited challenges—particularly in weak scaling—due to difficulties aligning problem resolution with the number of processes
+                and inconsistencies in performance at higher process counts. MPI's reliance on internode communication across a cluster with 1 Gbps Ethernet links
+                proved to be a significant limitation. In contrast, OpenMP, operating within a shared memory environment, delivered reliable scaling across all tests,
+                making it the more stable and user-friendly option for our experiments.
+            </p>
+
+            <p>
+                Initial MPI tests with the RayleighBenard2d example showed promising strong scaling from 1 to 4 processes, reducing runtime from 43 to 16 seconds and
+                increasing MLUP/s from 5.5 to 14.3. However, scaling beyond 8 processes resulted in erratic performance and eventually led to failures at 16 and 32
+                processes, with errors likely tied to memory communication issues. Bifurcation3d followed a similar trend, with initial MPI scaling working well but
+                breaking down at higher process counts due to increased 3D complexity and the cluster's hardware limitations. These outcomes suggest that while MPI
+                has the potential for high performance, it requires careful tuning and is highly sensitive to network bandwidth and load balancing inefficiencies.
+            </p>
+
+            <p>
+                In contrast, OpenMP showed smooth and reliable strong scaling. In the RayleighBenard2d example, increasing threads from 1 to 32 yielded a near-linear
+                improvement in MLUP/s from 5.3 to 12, with runtime dropping from 44 to 19 seconds. Even weak scaling with OpenMP demonstrated consistent performance
+                until thread counts reached 32, where performance began to decline—likely due to memory contention. The Bifurcation3d OpenMP tests showed lower MLUP/s
+                overall due to the complexity of 3D simulations but remained stable across trials, with no runtime failures, unlike MPI.
+            </p>
+
+            <p>
+                To address MPI's performance limitations, we introduced a hybrid parallelization approach, combining MPI and OpenMP. This configuration allowed us to
+                exploit MPI's domain decomposition while reducing communication overhead by leveraging OpenMP within each process. On our cluster, the maximum number
+                of combined MPI processes and threads was 32. The hybrid approach achieved better performance than OpenMP alone and avoided the instability seen in
+                high-process MPI runs. This suggests that hybrid parallelism offers a practical compromise, especially in network-constrained environments.
+            </p>
+
+            <p>
+                To confirm MPI communication as the bottleneck, we instrumented the code to time the PostCollision step—where, according to the OpenLB user manual,
+                the majority of MPI communication occurs. Our results showed that using multiple nodes drastically increased PostCollision runtime—from under 0.5
+                seconds on one node to as high as 10 seconds across multiple nodes—highlighting the impact of slow network communication. While faster interconnects
+                might reduce this penalty, the problem is not isolated to a single step; other areas such as post-streaming, global quantity computation, and cuboid
+                boundary communication also contribute to MPI's overhead.
+            </p>
+
+            <p>
+                As a contribution to the OpenLB project, we added support for configurable problem resolution at runtime via a command-line parameter, reducing the
+                need for recompilation between tests. This feature, implemented in the utility header resolutionInput.hh, allows users to specify a lattice resolution
+                using the -r flag, streamlining weak scaling experiments and making the library more accessible for researchers and developers conducting parameter
+                sweeps or scalability benchmarks.
+            </p>
+
+            <p>
+                Looking forward, there are several potential directions to enhance OpenLB's utility. Incorporating CUDA into simulations could provide significant
+                acceleration for large-scale problems, especially as OpenLB is designed to benefit from GPU parallelism. Additionally, addressing MPI communication
+                challenges more robustly could involve creating a built-in profiling tool that highlights when communication overhead is degrading performance. Such
+                a tool would help users tailor their configurations to their specific cluster architecture. Finally, while OpenLB provides a broad set of example
+                problems, applying it to more domain-specific simulations—such as modeling respiratory particle dispersion or blood flow through occluded arteries—would
+                make the tool more relevant to real-world scenarios. OpenLB holds strong potential as both a research and educational platform for complex fluid and
+                particle dynamics.
+            </p>
+
+            <div class="image-container">
+                <a href="https://docs.google.com/document/d/13asYHF3Qhm89IVmgYwncc028He4cc7JujudeMXElc6s/edit?tab=t.0" target="_blank">Final Draft Report</a>
+                <img src="assets/img/resume_icon.png" alt="Report" width="20" height="20">
+            </div>
+
+            <div class="image-container">
+                <a href="https://github.com/mpuckett7/Barro-Mueller-Puckett-FP470" target="_blank">
+                    <img src="assets/img/github_logo.png" alt="GitHub Logo" width="20" height="20">
+                    GitHub Repo
+                </a>
+            </div>
+            <div class="image-container">
+                <img src="assets/img/ndva_logo.png" alt="NDVA logo" class="cert-image">
+                <img src="assets/img/ndva_graphics_card.avif" alt="NDVA graphics card" class="cert-image">
+            </div>
         </section>
     </main>
 
