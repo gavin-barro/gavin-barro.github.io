@@ -15,6 +15,44 @@
         <button type="button" id="darkModeToggle"> Dark Mode 🌑 </button>
     </p>
 
+    <main class="projects-section">
+        <section class="project">
+            <h2>AI Earnings Call Signal Extraction</h2>
+            <p>
+                <strong>AI Earnings Call Signal Extraction</strong> is a natural language processing (NLP)-driven application built in Python that automates
+                the retrieval and analysis of NVIDIA's earnings call transcripts over the last four fiscal quarters. Leveraging the Alpha Vantage API, the
+                application fetches detailed transcripts for each quarter and uses transformer-based sentiment analysis models (specifically a fine-tuned
+                DistilBERT model) to quantify the tone and sentiment of both management-prepared remarks and the Q&amp;A sessions with analysts. By splitting
+                these sections based on speaker roles, the system generates discrete sentiment scores that help assess executive optimism, caution, or
+                neutrality over time.
+            </p>
+
+            <p>
+                In addition to sentiment analysis, the project extracts strategic themes using a custom keyword frequency analysis tailored to NVIDIA's
+                domain—highlighting focus areas such as AI, data centers, GPU architecture, and cloud partnerships. The application then performs a
+                quarter-over-quarter comparison to detect shifts in tone or focus, making it easier to interpret how management's communication strategy
+                evolves with market conditions or product announcements. This tool serves as a lightweight earnings intelligence engine for investors,
+                analysts, or researchers who want to capture financial narrative signals from raw text without manual review.
+            </p>
+
+            <div>
+                <a href="https://www.coursicle.com/jmu/courses/CS/159/" target="_blank">The project is deployed here using Vercel</a>
+            </div>
+            <div>
+                <a href="https://github.com/gavin-barro/AIEarningsSignal" target="_blank">
+                    <img src="assets/img/github_logo.png" alt="GitHub Logo" width="20" height="20">
+                    GitHub Repo
+                </a>
+            </div>
+        </section>
+
+        <!-- Add more project sections below -->
+        <section class="project">
+            <h2>[Your Next Project Title]</h2>
+            <p>[Project description goes here...]</p>
+        </section>
+    </main>
+
     <div class="center-wrapper">
         <button type="button" id="backToTop">Back to Top</button>
     </div>
